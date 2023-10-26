@@ -59,7 +59,7 @@ public class ProductoDao {
             String query = "SELECT * FROM producto";
 
             ps = connect.prepareStatement(query);//manda
-            rs = ps.executeQuery();//resive
+            rs = ps.executeQuery();//recibe
 
 
             while (rs.next()){

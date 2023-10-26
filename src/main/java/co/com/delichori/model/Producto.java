@@ -13,7 +13,7 @@ public class Producto {
     private int opc;
 
 
-//PREGUNTARLE A JOHA DONDE SE HACE LA FÓRMULA DE LA GANANCIA
+//PREGUNTARLE A JOHA DONDE SE HACE LA FÓRMULA DE LA GANANCIA // respuesta en producto DAO
 
     public Producto() {
 

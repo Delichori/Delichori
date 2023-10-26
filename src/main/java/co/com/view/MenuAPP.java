@@ -61,4 +61,16 @@ public class MenuAPP {
 
 
     }
+
+    public void menuPedido() {
+    }
+
+    public void menuUsuario() {
+    }
+
+    public void menuCliente() {
+    }
+
+    public void menuAdministrador() {
+    }
 }
