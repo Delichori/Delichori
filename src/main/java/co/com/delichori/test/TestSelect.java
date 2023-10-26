@@ -9,7 +9,7 @@ public class TestSelect {
 
         ProductoService productoService = new ProductoService();
 
-        ProductoService.listarProducto();
+        ProductoService.verProducto();
 
 
 

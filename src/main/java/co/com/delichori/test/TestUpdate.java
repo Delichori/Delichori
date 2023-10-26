@@ -7,9 +7,9 @@ public class TestUpdate {
 
         ProductoService ps =new ProductoService();
 
-        ProductoService.listarProducto();
+        ProductoService.verProducto();
 
-        ProductoService.modificarProducto();
+        ProductoService.actualizarProducto();
 
 
 

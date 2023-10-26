@@ -28,12 +28,12 @@ public class MenuAPP {
 
                 case 2:
                     System.out.println("Listar producto ");
-                    ProductoService.listarProducto();
+                    ProductoService.verProducto();
                     break;
 
                 case 3:
                     System.out.println("Modificar producto ");
-                    ProductoService.modificarProducto();
+                    ProductoService.actualizarProducto();
                     break;
 
                 case 4:

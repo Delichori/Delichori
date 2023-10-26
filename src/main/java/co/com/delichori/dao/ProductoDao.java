@@ -11,79 +11,77 @@ import java.sql.SQLException;
 public class ProductoDao {
 
 //OJO ESTO ES UNA PRUEBA HAY QU AJUSTAR TODO AL DIAGRAMA UML DELICHORI
+    public  static void crearProductoDB(Producto registro ){
 
-        public  static void crearProductoDB(Producto registro ){
+        try(Connection conexion = Conexion.get_connetion()){
 
-                try(Connection conexion = Conexion.get_connetion()){
+            PreparedStatement ps =null;
 
-                        PreparedStatement ps =null;
+            try {
 
-                        try {
-                                String query = "INSERT INTO producto(nombre_producto,descripcion_productp, precioCosto, precioVenta, ganancia_producto, existencia) VALUES (?,?,?,?,?,?)";
+               String query = "INSERT INTO producto(nombre_producto,descripcion_productp, precioCosto, precioVenta, ganancia_producto, existencia) VALUES (?,?,?,?,?,?)";
 
-                                ps = conexion.prepareStatement(query);
+               ps = conexion.prepareStatement(query);
 
-                                ps.setString(1,registro.getNombreProducto());
-                                ps.setString(2,registro.getDescripcionProducto());
-                                ps.setDouble(3,registro.getPrecio());
-                                ps.setDouble(4,registro.getCosto());
-                                ps.setDouble(5, registro.getCantidad());
+               ps.setString(1,registro.getNombreProducto());
+               ps.setString(2,registro.getDescripcionProducto());
+               ps.setDouble(3,registro.getPrecioVentaProducto());
+               ps.setDouble(4,registro.getPrecioCostoProducto());
+               ps.setDouble(5, registro.getExistenciaProducto());
 
-                                // para insert delete update
-                                ps.executeUpdate();
+               ps.executeUpdate(); // para insert delete update
 
-                                System.out.println("Registro de producto exitoso ");
+               System.out.println("Registro de producto exitoso ");
 
-                        }catch  (SQLException e){
-                                System.out.println(e);
-                        }
+            }catch (SQLException e){
+               System.out.println(e);
+            }
+        }catch (SQLException e){
 
+                System.out.println(e);
 
-                }catch (SQLException e){
-                        System.out.println(e);
-                }finally {
-                        Conexion.close_connection();
-                }
-
+        }finally {
+            Conexion.close_connection();
         }
 
+    }
 
         //TRAER QUERY
-        public static  void listarProductoDB(){
-
+    public static  void verProductoDB(){
                                 //manda
-                PreparedStatement ps= null;
+        PreparedStatement ps= null;
 
                 //trae el resultado de la consulta
-                ResultSet rs =null;
+        ResultSet rs =null;
 
-                try(Connection connect = Conexion.get_connetion()){
-                        String query = "SELECT * FROM producto";
+        try(Connection connect = Conexion.get_connetion()){
 
-                        ps = connect.prepareStatement(query);//manda
-                        rs = ps.executeQuery();//resive
+            String query = "SELECT * FROM producto";
+
+            ps = connect.prepareStatement(query);//manda
+            rs = ps.executeQuery();//resive
 
 
-                        while (rs.next()){
-                                System.out.println("\n");
-                                System.out.println("Id producto: "+ rs.getInt("id"));
-                                System.out.println("Nombre del producto: " + rs.getString("nombre"));
-                                System.out.println("Descripcion del producto: " + rs.getString("descripcion"));
-                                System.out.println("Precio del producto: " + rs.getDouble("precio"));
-                                System.out.println("Costo del producto: " + rs.getDouble("costo"));
-                                System.out.println("Cantidad del producto: " + rs.getDouble("cantidad"));
+            while (rs.next()){
 
-                        }
+                System.out.println("\n");
+                System.out.println("Id producto: "+ rs.getInt("id"));
+                System.out.println("Nombre del producto: " + rs.getString("nombre"));
+                System.out.println("Descripcion del producto: " + rs.getString("descripcion"));
+                System.out.println("Precio del producto: " + rs.getDouble("precio"));
+                System.out.println("Costo del producto: " + rs.getDouble("costo"));
+                System.out.println("Cantidad del producto: " + rs.getDouble("cantidad"));
 
-                }catch (SQLException e){
+            }
 
-                        System.out.println("No se recuperaron registros ");
-                        System.out.println(e);
-                }finally {
-                        Conexion.close_connection();
-                }
-
+        }catch (SQLException e){
+            System.out.println("No se recuperaron registros ");
+            System.out.println(e);
+        }finally {
+            Conexion.close_connection();
         }
+
+    }
 
         public  static  void  modificarProductoDB(Producto update ){
 
@@ -134,7 +132,7 @@ public class ProductoDao {
 
                                         ps =connect.prepareStatement(query);
 
-                                        ps.setDouble(1,update.getPrecio());
+                                        ps.setDouble(1,update.getPrecioVentaProducto());
                                         ps.setInt(2,update.getIdProducto());
                                         ps.executeUpdate();
 
@@ -149,7 +147,7 @@ public class ProductoDao {
 
                                         ps =connect.prepareStatement(query);
 
-                                        ps.setDouble(1,update.getCosto());
+                                        ps.setDouble(1,update.getPrecioCostoProducto());
                                         ps.setInt(2,update.getIdProducto());
                                         ps.executeUpdate();
 
@@ -165,7 +163,7 @@ public class ProductoDao {
 
                                         ps =connect.prepareStatement(query);
 
-                                        ps.setDouble(1,update.getCantidad());
+                                        ps.setDouble(1,update.getExistenciaProducto());
                                         ps.setInt(2,update.getIdProducto());
                                         ps.executeUpdate();
 
