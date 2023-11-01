@@ -9,11 +9,7 @@ public class Producto {
     private double precioVentaProducto;
     private double gananciaProducto;
     private double existenciaProducto;
-
     private int opc;
-
-
-//PREGUNTARLE A JOHA DONDE SE HACE LA FÓRMULA DE LA GANANCIA // respuesta en producto DAO
 
     public Producto() {
 

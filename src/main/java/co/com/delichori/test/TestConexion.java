@@ -9,7 +9,7 @@ public class TestConexion {
     public static void main(String[] args) {
 
 
-        try(Connection connect = Conexion.get_connetion()) {
+        try(Connection connect = Conexion.get_connection()) {
 
 
 

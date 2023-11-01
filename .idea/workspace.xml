@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9adbcff7-a9ad-4d18-a9dd-877d23674cf4" name="Changes" comment="" />
+    <list default="true" id="9adbcff7-a9ad-4d18-a9dd-877d23674cf4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/conexion/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/conexion/Conexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/dao/ProductoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/dao/ProductoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/model/Producto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/ProductoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/test/TestConexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/test/TestConexion.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,7 +41,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/Mi_Cesd_Disc_Jul_2023/_PROGRAMACIÓN/IdeaProjects/TiendaAPP"
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "F:/Repositorios Delichori/Delichori"
   }
 }]]></component>
   <component name="RunManager">
@@ -79,25 +88,5 @@
       <updated>1698281723315</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/co/com/delichori/dao/ProductoDao.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/co/com/delichori/dao/ProductoDao.java</url>
-          <line>49</line>
-          <properties class="co.com.delichori.dao.ProductoDao" method="verProductoDB">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

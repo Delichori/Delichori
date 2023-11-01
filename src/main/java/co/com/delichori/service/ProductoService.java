@@ -8,15 +8,15 @@ import java.util.Scanner;
 public class ProductoService {
      static Scanner sc = new Scanner(System.in);
 
-
     public  static void crearProducto(){
+
         System.out.println("Ingrese el nombre del producto: " );
         String nombre = sc.nextLine();
         System.out.println("Ingrese la descripcion del producto: ");
         String descripcion =sc. nextLine();
-        System.out.println("Ingrese el precio del producto: ");
+        System.out.println("Ingrese el precio venta del producto: ");
         double precio =sc.nextDouble();
-        System.out.println("Ingrese el costo del producto: ");
+        System.out.println("Ingrese el precio costo del producto: ");
         double costo =sc.nextDouble();
         System.out.println("Ingrese la cantidad de producto: ");
         double cantidad =sc.nextDouble();
@@ -32,6 +32,7 @@ public class ProductoService {
 
         ProductoDao.crearProductoDB(registro);
     }
+
     public static  void verProducto(){
 
         ProductoDao.verProductoDB();
@@ -40,15 +41,13 @@ public class ProductoService {
 
     public  static  void actualizarProducto(){
 
-
-        System.out.println("Indique para modificar: 1.Nombre 2.Descripción 3. Precio 4. Costo 5. Cantidad");
+        System.out.println("Indique para modificar: 1.Nombre 2.Descripción 3. Precio venta 4.Precio Costo 5. Existencias");
         int opc = sc.nextInt();
         sc.skip("\n");
 
         int id;
 
         Producto update = new Producto(); //Instancia producto
-
 
         switch (opc){
             case 1:
@@ -61,7 +60,7 @@ public class ProductoService {
                 update.setOpc(opc);
                 update.setNombreProducto(nombre);
                 update.setIdProducto(id);
-                ProductoDao.modificarProductoDB(update);
+                ProductoDao.actualizarProductoDB(update);
                 break;
 
             case 2:
@@ -74,11 +73,11 @@ public class ProductoService {
                 update.setOpc(opc);
                 update.setDescripcionProducto(descripcion);
                 update.setIdProducto(id);
-                ProductoDao.modificarProductoDB(update);
+                ProductoDao.actualizarProductoDB(update);
                 break;
 
             case 3:
-                System.out.println("Modificar precio");
+                System.out.println("Modificar el precio de venta");
                 System.out.println("Ingrese el nuevo valor");
                 double precio = sc.nextDouble();
                 System.out.println("Indique el id del producto a actualizar: ");
@@ -87,11 +86,11 @@ public class ProductoService {
                 update.setOpc(opc);
                 update.setPrecioVentaProducto(precio);
                 update.setIdProducto(id);
-                ProductoDao.modificarProductoDB(update);
+                ProductoDao.actualizarProductoDB(update);
                 break;
 
             case 4:
-                System.out.println("Modificar costo");
+                System.out.println("Modificar el precio del costo");
                 System.out.println("Ingrese el nuevo valor");
                 double costo = sc.nextDouble();
                 System.out.println("Indique el id del producto a actualizar: ");
@@ -100,11 +99,11 @@ public class ProductoService {
                 update.setOpc(opc);
                 update.setPrecioCostoProducto(costo);
                 update.setIdProducto(id);
-                ProductoDao.modificarProductoDB(update);
+                ProductoDao.actualizarProductoDB(update);
                 break;
 
             case 5:
-                System.out.println("Modificar cantidad");
+                System.out.println("Modificar exitencias");
                 System.out.println("Ingrese el nuevo valor");
                 double cantidad= sc.nextDouble();
                 System.out.println("Indique el id del producto a actualizar: ");
@@ -113,11 +112,11 @@ public class ProductoService {
                 update.setOpc(opc);
                 update.setExistenciaProducto(cantidad);
                 update.setIdProducto(id);
-                ProductoDao.modificarProductoDB(update);
+                ProductoDao.actualizarProductoDB(update);
                 break;
 
             default:
-                System.out.println("Seleccione suna opción válida");
+                System.out.println("Seleccione una opción válida");
         }
     }
 
@@ -129,6 +128,9 @@ public class ProductoService {
 
     }
 
+    public  static  void verGananciaProducto(){
 
+        ProductoDao.verGananciaProductoDB();
 
+    }
 }

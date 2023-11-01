@@ -22,7 +22,7 @@ public class Conexion {
 
     }
 
-    public static Connection get_connetion(){
+    public static Connection get_connection(){
         System.out.println("Antes de pedir: " + connect);
 
         if (connect == null){

@@ -2,6 +2,7 @@ package co.com.delichori.dao;
 
 import co.com.delichori.conexion.Conexion;
 import co.com.delichori.model.Producto;
+import co.com.delichori.service.ProductoService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,11 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProductoDao {
-
-//OJO ESTO ES UNA PRUEBA HAY QU AJUSTAR TODO AL DIAGRAMA UML DELICHORI
     public  static void crearProductoDB(Producto registro ){
 
-        try(Connection conexion = Conexion.get_connetion()){
+        try(Connection conexion = Conexion.get_connection()){
 
             PreparedStatement ps =null;
 
@@ -39,28 +38,23 @@ public class ProductoDao {
         }catch (SQLException e){
 
                 System.out.println(e);
-
         }finally {
             Conexion.close_connection();
         }
-
     }
 
-        //TRAER QUERY
-    public static  void verProductoDB(){
-                                //manda
+    public static void verProductoDB(){
+        //manda
         PreparedStatement ps= null;
-
-                //trae el resultado de la consulta
+        //trae el resultado de la consulta
         ResultSet rs =null;
 
-        try(Connection connect = Conexion.get_connetion()){
+        try(Connection connect = Conexion.get_connection()){
 
             String query = "SELECT * FROM producto";
 
             ps = connect.prepareStatement(query);//manda
             rs = ps.executeQuery();//recibe
-
 
             while (rs.next()){
 
@@ -71,159 +65,154 @@ public class ProductoDao {
                 System.out.println("Precio del producto: " + rs.getDouble("precio"));
                 System.out.println("Costo del producto: " + rs.getDouble("costo"));
                 System.out.println("Cantidad del producto: " + rs.getDouble("cantidad"));
-
             }
-
         }catch (SQLException e){
             System.out.println("No se recuperaron registros ");
             System.out.println(e);
         }finally {
             Conexion.close_connection();
         }
-
     }
 
-        public  static  void  modificarProductoDB(Producto update ){
+    public  static  void  actualizarProductoDB(Producto update ){
+        try(Connection connect = Conexion.get_connection()){
 
+            PreparedStatement ps = null;
 
-                try(Connection connect = Conexion.get_connetion()){
+            try { //Try interno donde corre el query
 
-                        PreparedStatement ps = null;
+                int opc = update.getOpc();
 
-                        try{
-                                int opc = update.getOpc();
-                                System.out.println(opc);
+                System.out.println(opc);
 
-                                if(opc == 1){
+                if (opc == 1) {
 
+                    String query = "UPDATE producto SET nombre=? WHERE id = ?";
 
-                                        String query ="update producto set nombre =? where id= ? ";
+                    ps = connect.prepareStatement(query);
+                    ps.setString(1, update.getNombreProducto());
+                    ps.setInt(2, update.getIdProducto());
+                    ps.execute();
 
-                                        ps =connect.prepareStatement(query);
+                    System.out.println("Actualización exitosa");
 
-                                        ps.setString(1,update.getNombreProducto());
-                                        ps.setInt(2,update.getIdProducto());
-                                        ps.executeUpdate();
+                }else if (opc == 2){
 
-                                        System.out.println("Modificacion exitosa ");
+                    String query = "UPDATE producto SET descripcion=? WHERE id = ?";
 
-                                }
+                    ps = connect.prepareStatement(query);
+                    ps.setString(1, update.getDescripcionProducto());
+                    ps.setInt(2, update.getIdProducto());
+                    ps.execute();
 
-                                if(opc == 2){
+                    System.out.println("Actualización exitosa");
 
+                }else if (opc ==3){
 
-                                        String query ="update producto set descripcion =? where id= ? ";
+                    String query = "UPDATE producto SET precio=? WHERE id = ?";
 
-                                        ps =connect.prepareStatement(query);
+                    ps = connect.prepareStatement(query);
+                    ps.setDouble(1, update.getPrecioVentaProducto());
+                    ps.setInt(2, update.getIdProducto());
+                    ps.execute();
 
-                                        ps.setString(1,update.getDescripcionProducto());
-                                        ps.setInt(2,update.getIdProducto());
-                                        ps.executeUpdate();
+                    System.out.println("Actualización exitosa");
 
-                                        System.out.println("Modificacion exitosa ");
+                }else if (opc == 4){
 
-                                }
+                    String query = "UPDATE producto SET costo=? WHERE id = ?";
 
+                    ps = connect.prepareStatement(query);
+                    ps.setDouble(1, update.getPrecioCostoProducto());
+                    ps.setInt(2, update.getIdProducto());
+                    ps.execute();
 
-                                if(opc == 3){
+                    System.out.println("Actualización exitosa");
 
+                }else if (opc ==5){
 
-                                        String query ="update producto set precio =? where id= ? ";
+                    String query = "UPDATE producto SET cantidad=? WHERE id = ?";
 
-                                        ps =connect.prepareStatement(query);
+                    ps = connect.prepareStatement(query);
+                    ps.setDouble(1, update.getExistenciaProducto());
+                    ps.setInt(2, update.getIdProducto());
+                    ps.execute();
 
-                                        ps.setDouble(1,update.getPrecioVentaProducto());
-                                        ps.setInt(2,update.getIdProducto());
-                                        ps.executeUpdate();
+                    System.out.println("Actualización exitosa");
 
-                                        System.out.println("Modificacion exitosa ");
+                }else{
 
-                                }
+                    System.out.println("La opción no es válida");
 
-                                if(opc == 4){
-
-
-                                        String query ="update producto set costo =? where id= ? ";
-
-                                        ps =connect.prepareStatement(query);
-
-                                        ps.setDouble(1,update.getPrecioCostoProducto());
-                                        ps.setInt(2,update.getIdProducto());
-                                        ps.executeUpdate();
-
-                                        System.out.println("Modificacion exitosa ");
-
-                                }
-
-
-                                if(opc == 5){
-
-
-                                        String query ="update producto set cantidad =? where id= ? ";
-
-                                        ps =connect.prepareStatement(query);
-
-                                        ps.setDouble(1,update.getExistenciaProducto());
-                                        ps.setInt(2,update.getIdProducto());
-                                        ps.executeUpdate();
-
-                                        System.out.println("Modificacion exitosa ");
-
-                                }
-
-
-
-
-
-
-
-
-                        }catch (SQLException e){
-                                System.out.println("No fue posible modificar el registro");
-                                System.out.println(e);
-                        }
-
-
-
-                }catch (SQLException e){
-                        System.out.println(e);
-                }finally {
-                        Conexion.close_connection();
                 }
 
-
+            }catch (SQLException e){
+                System.out.println("No fue posible actualizar el registro");
+                System.out.println(e);
+            }
+        }catch (SQLException e){
+            System.out.println(e);
+        }finally { //Sin importar si el try falla o no el finally se ejecuta
+            Conexion.close_connection();
         }
-
-        public  static  void eliminarProductoDB(int idProducto){
-
-               //conectar DB
-                try(Connection connect = Conexion.get_connetion()){
-
-                        PreparedStatement ps =null;
-
-                        try{
-                           String query = "DELETE FROM producto WHERE producto.id =? ";
-
-                           ps=connect.prepareStatement(query);
-                           ps.setInt(1,idProducto);
-                           ps.executeUpdate();
-
-                                System.out.println("El registro ha sido eliminado correctamente ");
-
-                        }catch (SQLException e){
-                                System.out.println("No se elimino el registro ");
-                                System.out.println(e);
-                        }
-
-                }catch (SQLException e){
-
-                        System.out.println(e);
-
-                }finally {
-                        Conexion.close_connection();
-                }
-
-        }
-
-
     }
+
+    public static void eliminarProductoDB(int idProducto){
+
+        try(Connection connect = Conexion.get_connection()){
+
+            PreparedStatement ps = null;
+
+            try {
+                String query = "DELETE FROM producto where producto.id = ?"; //Con el signo de interrogación le indicamos que le pasamos el id por ()
+                ps = connect.prepareStatement(query);
+                ps.setInt(1, idProducto);
+                ps.executeUpdate();
+                System.out.println("El registro ha sido eliminado correctamente");
+            }catch (SQLException e){
+                System.out.println("No se eliminó el registro");
+                System.out.println(e);
+            }
+
+        }catch (SQLException e){
+            System.out.println(e);
+        }finally { //Sin importar si el try falla o no el finally se ejecuta
+            Conexion.close_connection();
+        }
+    }
+
+    public static void verGananciaProductoDB(){
+        //manda
+        PreparedStatement ps= null;
+        //trae el resultado de la consulta
+        ResultSet rs =null;
+
+        try(Connection connect = Conexion.get_connection()){
+
+            String query = "SELECT * FROM producto";
+
+            ps = connect.prepareStatement(query);//manda
+            rs = ps.executeQuery();//recibe
+
+            while (rs.next()){
+
+                Producto ganancia = new Producto();
+
+                System.out.println("\n");
+                System.out.println("Precio venta del producto: " + rs.getDouble("precio"));
+                System.out.println("Precio costo del producto: " + rs.getDouble("costo"));
+
+                double gananciaProducto = ganancia.getPrecioVentaProducto() - ganancia.getPrecioCostoProducto();
+                ganancia.setGananciaProducto(gananciaProducto);
+
+            }
+        }catch (SQLException e){
+            System.out.println("No se recuperaron registros ");
+            System.out.println(e);
+        }finally {
+            Conexion.close_connection();
+        }
+    }
+}
+
+
