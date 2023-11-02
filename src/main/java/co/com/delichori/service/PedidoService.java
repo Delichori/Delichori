@@ -3,6 +3,7 @@ package co.com.delichori.service;
 import co.com.delichori.dao.PedidoDao;
 import co.com.delichori.model.Pedido;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class PedidoService {
@@ -14,13 +15,14 @@ public class PedidoService {
         System.out.println("Digitar Estado Pedido según: 'CONFIRMADO', 'DESPACHADO', 'FACTURADO', 'PAGADO'.");
         String estado = sc.nextLine();
         System.out.println("Ingrese cantidad producto");
-        int cantidad = sc.nextnt();
-
-
-
-
-
-
+        int cantidad = sc.nextInt();
+        sc.skip("\n");
+        //producto producto no se implementa solo se llama y se imprime
+        //valor total se saca desde ?????
+        System.out.println("Ingrese Fecha Actual");
+        LocalDate fecha = LocalDate.parse(sc.nextLine());
+        System.out.println("Ingrese Fecha Entrega");
+        LocalDate fechaEntrega = LocalDate.parse(sc.nextLine());
 
 
         /*Pedido registro = new Pedido();
