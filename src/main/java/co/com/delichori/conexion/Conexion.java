@@ -32,8 +32,6 @@ public class Conexion {
         return  connect;
 
     }
-//crear un metodo para cerrar ls conexion a la bd y
-
 
     public static void close_connection(){
 
@@ -46,7 +44,7 @@ public class Conexion {
         } catch (Exception e) {
             System.out.println(e);;
         }
-        System.out.println("DEspués de cerrar: "+ connect);
+        System.out.println("Después de cerrar: "+ connect);
 
     }
 }

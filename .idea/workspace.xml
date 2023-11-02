@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9adbcff7-a9ad-4d18-a9dd-877d23674cf4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/conexion/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/conexion/Conexion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/dao/ProductoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/dao/ProductoDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/model/Producto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/model/Producto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/ProductoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/ProductoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/test/TestConexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/test/TestConexion.java" afterDir="false" />
-    </list>
+    <list default="true" id="9adbcff7-a9ad-4d18-a9dd-877d23674cf4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +34,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "F:/Repositorios Delichori/Delichori"
+    "last_opened_file_path": "E:/Mi_Cesd_Disc_Jul_2023/_PROGRAMACIÓN/IdeaProjects/TiendaAPP"
   }
 }]]></component>
   <component name="RunManager">
@@ -55,19 +47,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="Delichori" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="Delichori" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

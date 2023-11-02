@@ -7,27 +7,29 @@ public class Pedido {
     //ATRIBUTOS
 
     private int idPedido;
-
     private String estadoPedido;
-
     private int cantidadProducto;
-
+    Producto producto;
     private double valorTotalPedido;
-
     private LocalDate fechaPedido;
-
     private LocalDate fechaEntrega;
-
-    Producto chorizo;
-
-    Producto chorizoPicante;
-
-    //Cliente cliente
+    Cliente cliente;
 
 
     //CONSTRUCTOR
-    public Pedido(){
+    public Pedido() {
 
+    }
+
+    public Pedido(int idPedido, String estadoPedido, int cantidadProducto, Producto producto, double valorTotalPedido, LocalDate fechaPedido, LocalDate fechaEntrega, Cliente cliente) {
+        this.idPedido = idPedido;
+        this.estadoPedido = estadoPedido;
+        this.cantidadProducto = cantidadProducto;
+        this.producto = producto;
+        this.valorTotalPedido = valorTotalPedido;
+        this.fechaPedido = fechaPedido;
+        this.fechaEntrega = fechaEntrega;
+        this.cliente = cliente;
     }
 
     public int getIdPedido() {
@@ -54,6 +56,14 @@ public class Pedido {
         this.cantidadProducto = cantidadProducto;
     }
 
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
+
     public double getValorTotalPedido() {
         return valorTotalPedido;
     }
@@ -77,4 +87,13 @@ public class Pedido {
     public void setFechaEntrega(LocalDate fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 }
+
