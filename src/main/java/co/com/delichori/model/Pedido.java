@@ -4,8 +4,6 @@ import java.time.LocalDate;
 
 public class Pedido {
 
-    //ATRIBUTOS
-
     private int idPedido;
     private String estadoPedido;
     private int cantidadProducto;
@@ -15,14 +13,12 @@ public class Pedido {
     private LocalDate fechaEntrega;
     Cliente cliente;
 
-
-    //CONSTRUCTOR
     public Pedido() {
 
     }
 
-    public Pedido(int idPedido, String estadoPedido, int cantidadProducto, Producto producto, double valorTotalPedido, LocalDate fechaPedido, LocalDate fechaEntrega, Cliente cliente) {
-        this.idPedido = idPedido;
+    public Pedido(String estadoPedido, int cantidadProducto, Producto producto, double valorTotalPedido, LocalDate fechaPedido, LocalDate fechaEntrega, Cliente cliente) {
+
         this.estadoPedido = estadoPedido;
         this.cantidadProducto = cantidadProducto;
         this.producto = producto;

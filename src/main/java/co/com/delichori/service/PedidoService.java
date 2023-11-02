@@ -12,9 +12,9 @@ public class PedidoService {
 
     public static void realizarPedido() {
         System.out.println("Digitar Estado Pedido según: 'CONFIRMADO', 'DESPACHADO', 'FACTURADO', 'PAGADO'.");
-        String estadoPedido = sc.nextLine();
+        String estado = sc.nextLine();
         System.out.println("Ingrese cantidad producto");
-        
+        int cantidad = sc.nextnt();
 
 
 
@@ -22,6 +22,16 @@ public class PedidoService {
 
 
 
+
+        /*Pedido registro = new Pedido();
+        registro.Se
+       /* registro(nombre);
+        registro.setDescripcionProducto(descripcion);
+        registro.setPrecioVentaProducto(precio);
+        registro.setPrecioCostoProducto(costo);
+        registro.setExistenciaProducto(cantidad);
+
+        PedidoDao.crearPedidoDB(registro);*/
 
 
     }

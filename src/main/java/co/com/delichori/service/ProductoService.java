@@ -23,6 +23,7 @@ public class ProductoService {
 
         //Aquí se asignan los datos ingresados a las variables
 
+
         Producto registro = new Producto();
         registro.setNombreProducto(nombre);
         registro.setDescripcionProducto(descripcion);

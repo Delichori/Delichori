@@ -18,7 +18,7 @@ public class ProductoDao {
 
             try {
 
-               String query = "INSERT INTO producto(nombre_producto,descripcion_productp, precioCosto, precioVenta, ganancia_producto, existencia) VALUES (?,?,?,?,?,?)";
+               String query = "INSERT INTO producto(nombre_producto,descripcion_producto, precioCosto, precioVenta, ganancia_producto, existencia) VALUES (?,?,?,?,?,?)";
 
                ps = conexion.prepareStatement(query);
 
