@@ -15,18 +15,15 @@ public class PedidoDao {
             PreparedStatement ps = null;
 
             try {
-                String query = "INSERT INTO pedido(EstadoPedido, CantidadProducto, ValorTotalPedido, FechaPedido, FechaEntrega) VALUES (?,?,?,?,?)";
+                String query = "INSERT INTO pedido(EstadoPedido, CantidadProducto, FechaPedido, FechaEntrega) VALUES (?,?,?,?)";
 
                 ps = conexion.prepareStatement(query);
 
                 ps.setString(1,registro.getEstadoPedido());
                 ps.setInt(2, registro.getCantidadProducto());
-                ps.setDouble(3, registro.getValorTotalPedido());
-                ps.setDate(4, Date.valueOf(registro.getFechaPedido()));
-                ps.setDate(5, Date.valueOf(registro.getFechaEntrega()));
+                ps.setDate(3, Date.valueOf(registro.getFechaPedido()));
+                ps.setDate(4, Date.valueOf(registro.getFechaEntrega()));
 
-
-                //
                 ps.executeUpdate();
 
                 System.out.println("Registro de pedido exitoso ");
@@ -44,7 +41,41 @@ public class PedidoDao {
 
     }
 
-    public static void verPedidoDB () {}
+    public static void verPedidoDB() {
+
+        PreparedStatement ps= null;
+        ResultSet rs =null;
+
+        try(Connection connect = Conexion.get_connection()){
+            String query = "SELECT * FROM pedido";
+
+            ps = connect.prepareStatement(query);
+            rs = ps.executeQuery();
+
+
+            while (rs.next()){
+                System.out.println("\n");
+                System.out.println("Id producto: "+ rs.getInt("idProducto"));
+                System.out.println("Estado del Pedido: " + rs.getString("EstadoPedido"));
+                System.out.println("Cantidad del producto: " + rs.getInt("CantidadProducto"));
+                System.out.println("Descripcion del producto: " + rs.getString("descripcion"));
+                System.out.println("Precio del producto: " + rs.getDouble("precio"));
+                System.out.println("Costo del producto: " + rs.getDouble("costo"));
+
+
+            }
+
+        }catch (SQLException e){
+
+            System.out.println("No se recuperaron registros ");
+            System.out.println(e);
+        }finally {
+            Conexion.close_connection();
+        }
+
+    }
+
+
     public static void actualizarPedidoDB () {}
     public static void cancelarPedidoDB () {}
 }

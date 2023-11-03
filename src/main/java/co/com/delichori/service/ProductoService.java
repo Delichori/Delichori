@@ -21,8 +21,6 @@ public class ProductoService {
         System.out.println("Ingrese la cantidad de producto: ");
         double cantidad =sc.nextDouble();
 
-        //Aquí se asignan los datos ingresados a las variables
-
 
         Producto registro = new Producto();
         registro.setNombreProducto(nombre);

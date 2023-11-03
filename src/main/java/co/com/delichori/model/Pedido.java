@@ -8,7 +8,6 @@ public class Pedido {
     private String estadoPedido;
     private int cantidadProducto;
     Producto producto;
-    private double valorTotalPedido;
     private LocalDate fechaPedido;
     private LocalDate fechaEntrega;
     Cliente cliente;
@@ -22,7 +21,6 @@ public class Pedido {
         this.estadoPedido = estadoPedido;
         this.cantidadProducto = cantidadProducto;
         this.producto = producto;
-        this.valorTotalPedido = valorTotalPedido;
         this.fechaPedido = fechaPedido;
         this.fechaEntrega = fechaEntrega;
         this.cliente = cliente;
@@ -60,13 +58,6 @@ public class Pedido {
         this.producto = producto;
     }
 
-    public double getValorTotalPedido() {
-        return valorTotalPedido;
-    }
-
-    public void setValorTotalPedido(double valorTotalPedido) {
-        this.valorTotalPedido = valorTotalPedido;
-    }
 
     public LocalDate getFechaPedido() {
         return fechaPedido;
@@ -91,5 +82,7 @@ public class Pedido {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+
 }
 
