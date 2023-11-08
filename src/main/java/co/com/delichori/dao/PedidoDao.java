@@ -1,6 +1,7 @@
 package co.com.delichori.dao;
 import co.com.delichori.conexion.Conexion;
 import co.com.delichori.model.Pedido;
+import co.com.delichori.model.Producto;
 import co.com.delichori.service.PedidoService;
 
 import java.sql.*;
@@ -10,7 +11,6 @@ public class PedidoDao {
     public static void crearPedidoDB(Pedido registro) {
 
         try (Connection conexion = Conexion.get_connection()) {
-
 
             PreparedStatement ps = null;
 
@@ -76,6 +76,62 @@ public class PedidoDao {
     }
 
 
-    public static void actualizarPedidoDB () {}
-    public static void cancelarPedidoDB () {}
+    public static void actualizarPedidoDB (Pedido update) {
+
+
+
+
+
+
+
+
+    }
+    public static void cancelarPedidoDB (int idPedido) {
+
+
+
+    }
+
+
+
+    public static void valorTotalPedido(){
+        PreparedStatement ps= null;
+        ResultSet rs =null;
+
+        try(Connection connect = Conexion.get_connection()){
+
+            String query = "SELECT * FROM producto";
+
+
+            ps = connect.prepareStatement(query);
+            rs = ps.executeQuery();
+
+            while (rs.next()){
+
+                Producto producto = new Producto();
+
+                System.out.println("\n");
+                System.out.println("Precio venta del producto: " + rs.getDouble("precio"));
+
+                /*double gananciaProducto = ganancia.getPrecioVentaProducto() - ganancia.getPrecioCostoProducto();
+                ganancia.setGananciaProducto(gananciaProducto);*/
+
+                /*double precioVentaProducto = ProductoService.crearProducto(precioVentaProducto);
+                int cantidadProducto;
+
+                double valorPedido = precioVentaProducto*cantidadProducto;
+
+                double precioVentaProducto = producto.getPrecioVentaProducto();
+                int cantidadProducto = getCantidadProducto();*/
+
+
+
+            }
+        }catch (SQLException e){
+            System.out.println("No se recuperaron registros ");
+            System.out.println(e);
+        }finally {
+            Conexion.close_connection();
+        }
+    }
 }

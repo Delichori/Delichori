@@ -1,65 +1,65 @@
 package co.com.delichori.service;
 
-public class AdministradorService extends UsuarioService{
+import co.com.delichori.dao.AdministradorDao;
+import co.com.delichori.model.Administrador;
 
-    public void registrarUsuario(){
+import java.util.Scanner;
 
-    }
+public abstract class AdministradorService implements UtilAdministrador {
 
-    public void eliminarUsuario(){
+    static Scanner sc = new Scanner(System.in);
 
-    }
+    public void registrarAdministrador() {
 
-    public void iniciarSesion(){
+        //SOLICITANDO LOS DATOS PARA EL REGISTRO
 
-    }
+        System.out.println("Ingrese el número de cédula: ");
+        int cedula = sc.nextInt();
+        System.out.println("Ingrese el nombre: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese el apellido: ");
+        String apellido = sc.nextLine();
+        System.out.println("Ingrese email: ");
+        String email = sc.nextLine();
+        System.out.println("Ingrese la contraseña: ");
+        String clave = sc.nextLine();
 
-    public void cerrarSesion(){
+        //ASIGNAR LOS DATOS INGRESADOS A LAS VARIABLES:
 
-    }
+        Administrador registro = new Administrador();
+        registro.setCedulaAdministrador(cedula);
+        registro.setNombreAdministrador(nombre);
+        registro.setApellidoAdministrador(apellido);
+        registro.setEmail(email);
+        registro.setClave(clave);
 
-    public void registrarAdministrador(){
+        //MANDAR LO QUE SE SETEA ARRIBA (REGISTRO) A ADMINISTRADORDAO
 
-    }
-
-    public void eliminarAministrador(){
-
-    }
-
-    public void crearProducto(){
-
-    }
-
-    public void actualizarProducto(){
-
-    }
-
-    public void eliminarProducto(){
-        
-    }
-    
-    public void verGananciaProducto(){
+        AdministradorDao.registrarAdministradorDB(registro);
 
     }
 
-    public void verPedido(){
-        
-    }
-    
-    public void actualizarPedido(){
+    public void iniciarSesion() {
 
-    }
+        Administrador registro = new Administrador();
 
-    public void cancelarPedido(){
+        System.out.println("Ingrese su email: ");
+        String email = sc.nextLine();
+        System.out.println("Ingrese su contraseña: ");
+        String clave = sc.nextLine();
 
-    }
-
-    public void generarFactura(){
-
-    }
-
-    public void verFacturaPdf(){
-
+        if (email.equals(registro.getEmail()) && clave.equals(registro.getClave())) {
+            System.out.println("Bienvenido");
+        } else {
+            System.out.println("Credenciales no válidas");
+        }
     }
 
+    public void eliminarAministrador() {
+
+        System.out.println("Indique la cédula del administrador que desea eliminar");
+        int cedulaAdministrador = sc.nextInt();
+        AdministradorDao.eliminarAdministradorDB(cedulaAdministrador); //Manda a administradordao el id que se recibe aquí
+
+    }
 }

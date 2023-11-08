@@ -8,14 +8,14 @@ public class Producto {
     private double precioCostoProducto;
     private double precioVentaProducto;
     private double gananciaProducto;
-    private double existenciaProducto;
+    private int existenciaProducto;
     private int opc;
 
     public Producto() {
 
     }
 
-    public Producto(int idProducto, String nombreProducto, String descripcionProducto, double precioCostoProducto, double precioVentaProducto, double gananciaProducto, double existenciaProducto) {
+    public Producto(int idProducto, String nombreProducto, String descripcionProducto, double precioCostoProducto, double precioVentaProducto, double gananciaProducto, int existenciaProducto, int opc) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.descripcionProducto = descripcionProducto;
@@ -23,6 +23,7 @@ public class Producto {
         this.precioVentaProducto = precioVentaProducto;
         this.gananciaProducto = gananciaProducto;
         this.existenciaProducto = existenciaProducto;
+        this.opc = opc;
     }
 
     public int getIdProducto() {
@@ -73,11 +74,11 @@ public class Producto {
         this.gananciaProducto = gananciaProducto;
     }
 
-    public double getExistenciaProducto() {
+    public int getExistenciaProducto() {
         return existenciaProducto;
     }
 
-    public void setExistenciaProducto(double existenciaProducto) {
+    public void setExistenciaProducto(int existenciaProducto) {
         this.existenciaProducto = existenciaProducto;
     }
 
@@ -88,7 +89,6 @@ public class Producto {
     public void setOpc(int opc) {
         this.opc = opc;
     }
-
 }
 
 

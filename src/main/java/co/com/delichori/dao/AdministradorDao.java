@@ -1,15 +1,16 @@
 package co.com.delichori.dao;
 import co.com.delichori.conexion.Conexion;
-import co.com.delichori.model.Cliente;
-import co.com.delichori.model.Usuario;
-import co.com.delichori.service.UsuarioService;
+import co.com.delichori.model.Administrador;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 public class AdministradorDao {
-    public static void registrarAdministradorDB(Usuario registro){
+
+    static Scanner sc = new Scanner(System.in);
+    public static void registrarAdministradorDB(Administrador registro){
 
         try(Connection conexion = Conexion.get_connection()){//Inicia la conexión
 
@@ -17,16 +18,15 @@ public class AdministradorDao {
 
             try {
 
-                String query = "INSERT INTO cliente(cedula, nombre, apellido, celular, email, clave)VALUES(?,?,?,?,?,?)";
+                String query = "INSERT INTO administrador(cedulaAdministrador, nombreAdministrador, apellidoAdministrador, email, clave)VALUES(?,?,?,?,?)";
 
                 ps = conexion.prepareStatement(query);
 
-                ps.setInt(1, registro.getCedula());
-                ps.setString(2, registro.getNombre());
-                ps.setString(3, registro.getApellido());
-                ps.setLong(4, registro.getCelular());
-                ps.setString(6, registro.getEmail());
-                ps.setString(7, registro.getClave());
+                ps.setInt(1, registro.getCedulaAdministrador());
+                ps.setString(2, registro.getNombreAdministrador());
+                ps.setString(3, registro.getApellidoAdministrador());
+                ps.setString(4, registro.getEmail());
+                ps.setString(5, registro.getClave());
 
                 ps.executeUpdate();
 
@@ -43,16 +43,16 @@ public class AdministradorDao {
             Conexion.close_connection();
         }
     }
-    public static void eliminarAdministradorDB(int idAdministrador){
+    public static void eliminarAdministradorDB(int cedulaAdministrador){
 
         try(Connection connect = Conexion.get_connection()){
 
             PreparedStatement ps = null;
 
             try {
-                String query = "DELETE FROM producto where producto.id = ?";
+                String query = "DELETE FROM administrador where administrador.cedulaAdministrador = ?";
                 ps = connect.prepareStatement(query);
-                ps.setInt(1, idAdministrador);
+                ps.setInt(1, cedulaAdministrador);
                 ps.executeUpdate();
                 System.out.println("El registro ha sido eliminado correctamente");
             }catch (SQLException e){
@@ -68,6 +68,21 @@ public class AdministradorDao {
     }
 
     public static void iniciarSesionDB(){
+
+
+       /* Administrador registro = new Administrador();
+
+        System.out.println("Ingrese su email: ");
+        String email = sc.nextLine();
+        System.out.println("Ingrese su contraseña: ");
+        String clave = sc.nextLine();
+
+        if (email.equals(registro.getEmail()) && clave.equals(registro.getClave())) {
+            System.out.println("Bienvenido");
+        } else {
+            System.out.println("Credenciales no válidas");
+        }*/
+
 
 
 

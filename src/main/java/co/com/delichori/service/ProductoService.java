@@ -19,7 +19,7 @@ public class ProductoService {
         System.out.println("Ingrese el precio costo del producto: ");
         double costo =sc.nextDouble();
         System.out.println("Ingrese la cantidad de producto: ");
-        double cantidad =sc.nextDouble();
+        int existenciaProducto =sc.nextInt();
 
 
         Producto registro = new Producto();
@@ -27,7 +27,7 @@ public class ProductoService {
         registro.setDescripcionProducto(descripcion);
         registro.setPrecioVentaProducto(precio);
         registro.setPrecioCostoProducto(costo);
-        registro.setExistenciaProducto(cantidad);
+        registro.setExistenciaProducto(existenciaProducto);
 
         ProductoDao.crearProductoDB(registro);
     }
@@ -102,14 +102,14 @@ public class ProductoService {
                 break;
 
             case 5:
-                System.out.println("Modificar exitencias");
+                System.out.println("Modificar existencias");
                 System.out.println("Ingrese el nuevo valor");
-                double cantidad= sc.nextDouble();
+                int existencia = sc.nextInt();
                 System.out.println("Indique el id del producto a actualizar: ");
                 id = sc.nextInt();
                 opc = 5;
                 update.setOpc(opc);
-                update.setExistenciaProducto(cantidad);
+                update.setExistenciaProducto(existencia);
                 update.setIdProducto(id);
                 ProductoDao.actualizarProductoDB(update);
                 break;

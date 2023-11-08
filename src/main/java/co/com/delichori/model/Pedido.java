@@ -5,26 +5,38 @@ import java.time.LocalDate;
 public class Pedido {
 
     private int idPedido;
+    private int cedulaCliente;
+    private String nombreCliente;
+    private String apellidoCliente;
+    private String direccionCliente;
     private String estadoPedido;
     private int cantidadProducto;
     Producto producto;
     private LocalDate fechaPedido;
-    private LocalDate fechaEntrega;
-    Cliente cliente;
+    private double valorTotalPedido;
+
+    private int opc;
+
+
 
     public Pedido() {
 
     }
 
-    public Pedido(String estadoPedido, int cantidadProducto, Producto producto, double valorTotalPedido, LocalDate fechaPedido, LocalDate fechaEntrega, Cliente cliente) {
-
+    public Pedido(int idPedido, int cedulaCliente, String nombreCliente, String apellidoCliente, String direccionCliente, String estadoPedido, int cantidadProducto, LocalDate fechaPedido, double valorTotalPedido, int opc) {
+        this.idPedido = idPedido;
+        this.cedulaCliente = cedulaCliente;
+        this.nombreCliente = nombreCliente;
+        this.apellidoCliente = apellidoCliente;
+        this.direccionCliente = direccionCliente;
         this.estadoPedido = estadoPedido;
         this.cantidadProducto = cantidadProducto;
-        this.producto = producto;
         this.fechaPedido = fechaPedido;
-        this.fechaEntrega = fechaEntrega;
-        this.cliente = cliente;
+        this.valorTotalPedido = valorTotalPedido;
+        this.opc = opc;
     }
+
+
 
     public int getIdPedido() {
         return idPedido;
@@ -34,12 +46,36 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public String getEstadoPedido() {
-        return estadoPedido;
+    public int getCedulaCliente() {
+        return cedulaCliente;
     }
 
-    public void setEstadoPedido(String estadoPedido) {
-        this.estadoPedido = estadoPedido;
+    public void setCedulaCliente(int cedulaCliente) {
+        this.cedulaCliente = cedulaCliente;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public String getApellidoCliente() {
+        return apellidoCliente;
+    }
+
+    public void setApellidoCliente(String apellidoCliente) {
+        this.apellidoCliente = apellidoCliente;
+    }
+
+    public String getDireccionCliente() {
+        return direccionCliente;
+    }
+
+    public void setDireccionCliente(String direccionCliente) {
+        this.direccionCliente = direccionCliente;
     }
 
     public int getCantidadProducto() {
@@ -58,7 +94,6 @@ public class Pedido {
         this.producto = producto;
     }
 
-
     public LocalDate getFechaPedido() {
         return fechaPedido;
     }
@@ -67,22 +102,27 @@ public class Pedido {
         this.fechaPedido = fechaPedido;
     }
 
-    public LocalDate getFechaEntrega() {
-        return fechaEntrega;
+    public double getValorTotalPedido() {
+        return valorTotalPedido;
     }
 
-    public void setFechaEntrega(LocalDate fechaEntrega) {
-        this.fechaEntrega = fechaEntrega;
+    public void setValorTotalPedido(double valorTotalPedido) {
+        this.valorTotalPedido = valorTotalPedido;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public int getOpc() {
+        return opc;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setOpc(int opc) {
+        this.opc = opc;
     }
 
+    public String getEstadoPedido() {
+        return estadoPedido;
+    }
 
+    public void setEstadoPedido(String estadoPedido) {
+        this.estadoPedido = estadoPedido;
+    }
 }
-

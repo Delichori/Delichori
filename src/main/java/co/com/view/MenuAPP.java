@@ -62,15 +62,6 @@ public class MenuAPP {
 
     }
 
-    public void menuPedido() {
-    }
 
-    public void menuUsuario() {
-    }
-
-    public void menuCliente() {
-    }
-
-    public void menuAdministrador() {
-    }
+// este esd el menu pnpal dentro de este llama a los otros dos
 }
