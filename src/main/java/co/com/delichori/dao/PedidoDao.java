@@ -15,123 +15,84 @@ public class PedidoDao {
             PreparedStatement ps = null;
 
             try {
-                String query = "INSERT INTO pedido(EstadoPedido, CantidadProducto, FechaPedido, FechaEntrega) VALUES (?,?,?,?)";
+                String query = "INSERT INTO pedido(cedulaCliente, nombreCliente, apellidoCliente, direccionCliente, cantidadProducto, fechaPedido, valorTotalPedido) VALUES (?,?,?,?,?,?,?)";
 
                 ps = conexion.prepareStatement(query);
 
-                ps.setString(1,registro.getEstadoPedido());
-                ps.setInt(2, registro.getCantidadProducto());
-                ps.setDate(3, Date.valueOf(registro.getFechaPedido()));
-                ps.setDate(4, Date.valueOf(registro.getFechaEntrega()));
+                ps.setInt(1, registro.getCedulaCliente());
+                ps.setString(2, registro.getNombreCliente());
+                ps.setString(3, registro.getApellidoCliente());
+                ps.setString(4, registro.getDireccionCliente());
+                ps.setInt(5, registro.getCantidadProducto());
+                ps.setDate(6, Date.valueOf(registro.getFechaPedido()));
+                ps.setDouble(7, registro.getValorTotalPedido());
 
                 ps.executeUpdate();
 
                 System.out.println("Registro de pedido exitoso ");
 
-            }catch  (SQLException e){
+            } catch (SQLException e) {
                 System.out.println(e);
             }
 
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println(e);
-        }finally {
+        } finally {
             Conexion.close_connection();
         }
 
     }
 
-    public static void verPedidoDB() {
+    public static void verPedidoDB(int idPedido) {
 
-        PreparedStatement ps= null;
-        ResultSet rs =null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
-        try(Connection connect = Conexion.get_connection()){
-            String query = "SELECT * FROM pedido";
+        try (Connection connect = Conexion.get_connection()) {
+            String query = "SELECT FROM pedido where pedido.idPedido = ?";
 
             ps = connect.prepareStatement(query);
             rs = ps.executeQuery();
 
 
-            while (rs.next()){
+            while (rs.next()) {
                 System.out.println("\n");
-                System.out.println("Id producto: "+ rs.getInt("idProducto"));
+                System.out.println("Id pedido: " + rs.getInt("idPedido"));
                 System.out.println("Estado del Pedido: " + rs.getString("EstadoPedido"));
+                System.out.println("Cédula Cliente: " + rs.getInt("cedulaCliente"));
+                System.out.println("Nombre Cliente: " + rs.getString("nombreCliente"));
+                System.out.println("Apellido Cliente: " + rs.getString("apellidoCliente"));
+                System.out.println("Direccion Cliente: " + rs.getString("direccionCliente"));
                 System.out.println("Cantidad del producto: " + rs.getInt("CantidadProducto"));
-                System.out.println("Descripcion del producto: " + rs.getString("descripcion"));
-                System.out.println("Precio del producto: " + rs.getDouble("precio"));
-                System.out.println("Costo del producto: " + rs.getDouble("costo"));
+                System.out.println("Fecha Actual: " + rs.getDate("fechaPedido"));
+                System.out.println("SU PEDIDO SERÁ ENTREGADO EN LOS SIGUIENTES TRES DÍAS CALENDARIO");
+                System.out.println("Valor Total Pedido: " + rs.getDouble("valorTotalPedido"));
 
 
             }
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
 
             System.out.println("No se recuperaron registros ");
             System.out.println(e);
-        }finally {
+        } finally {
             Conexion.close_connection();
         }
 
     }
 
 
-    public static void actualizarPedidoDB (Pedido update) {
-
-
-
-
-
-
-
-
-    }
-    public static void cancelarPedidoDB (int idPedido) {
-
+    public static void actualizarPedidoDB(Pedido update) {
 
 
     }
 
+    public static void cancelarPedidoDB(int idPedido) {
 
 
-    public static void valorTotalPedido(){
-        PreparedStatement ps= null;
-        ResultSet rs =null;
-
-        try(Connection connect = Conexion.get_connection()){
-
-            String query = "SELECT * FROM producto";
-
-
-            ps = connect.prepareStatement(query);
-            rs = ps.executeQuery();
-
-            while (rs.next()){
-
-                Producto producto = new Producto();
-
-                System.out.println("\n");
-                System.out.println("Precio venta del producto: " + rs.getDouble("precio"));
-
-                /*double gananciaProducto = ganancia.getPrecioVentaProducto() - ganancia.getPrecioCostoProducto();
-                ganancia.setGananciaProducto(gananciaProducto);*/
-
-                /*double precioVentaProducto = ProductoService.crearProducto(precioVentaProducto);
-                int cantidadProducto;
-
-                double valorPedido = precioVentaProducto*cantidadProducto;
-
-                double precioVentaProducto = producto.getPrecioVentaProducto();
-                int cantidadProducto = getCantidadProducto();*/
-
-
-
-            }
-        }catch (SQLException e){
-            System.out.println("No se recuperaron registros ");
-            System.out.println(e);
-        }finally {
-            Conexion.close_connection();
-        }
     }
 }
+
+
+

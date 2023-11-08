@@ -14,10 +14,7 @@ public class Pedido {
     Producto producto;
     private LocalDate fechaPedido;
     private double valorTotalPedido;
-
     private int opc;
-
-
 
     public Pedido() {
 

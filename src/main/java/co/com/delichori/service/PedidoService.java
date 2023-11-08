@@ -27,10 +27,8 @@ public class PedidoService {
         System.out.println("por favor digitar sus apellidos");
         String apellidoCliente = sc.nextLine();
 
-        System.out.println("Por favor ingrese Dirección de entrega");
+        System.out.println("Por favor ingrese dirección de entrega");
         String direccionCliente = sc.nextLine();
-
-        //producto producto no se implementa solo se llama y se imprime
 
         System.out.println("Digíte Id del producto: 1. CHORIZO TRADICIONAL,  2. CHORIZO PICANTE");
         int idProducto = sc.nextInt();
@@ -42,9 +40,11 @@ public class PedidoService {
         LocalDateTime fechaActual = LocalDateTime.now();
         System.out.println(fechaActual);
 
-        // hace falta valor pedido
+        double precioUnidad = 4000;
+        double total = cantidad * precioUnidad;
 
-        //PARA EL DAO --->System.out.println("SU PEDIDO SERÁ ENTREGADO EN LOS SIGUIENTES TRES DÍAS CALENDARIO");
+        System.out.println("El valor Total del Pedido es: "+total);
+
 
         Pedido registro = new Pedido();
         registro.setCedulaCliente(cedulaCliente);
@@ -53,6 +53,7 @@ public class PedidoService {
         registro.setDireccionCliente(direccionCliente);
         registro.setCantidadProducto(cantidad);
         registro.setFechaPedido(LocalDate.from(fechaActual));
+        registro.setValorTotalPedido(total);
 
         PedidoDao.crearPedidoDB(registro);
 
@@ -60,7 +61,9 @@ public class PedidoService {
 
     public static void verPedido() {
 
-        PedidoDao.verPedidoDB();
+        System.out.println("Indique el id del pedido: ");
+        int idPedido = sc.nextInt();
+        PedidoDao.verPedidoDB(idPedido);
 
 
     }
@@ -100,20 +103,9 @@ public class PedidoService {
         int idPedido = sc.nextInt();
         ProductoDao.eliminarProductoDB(idPedido);
 
+
     }
 
-    /*public  static void CalcularValorPedido() {
-
-        double precioVentaProducto = ProductoService.crearProducto(precioVentaProducto);
-        int cantidadProducto;
-
-        //double valorPedido = precioVentaProducto*cantidadProducto;
-
-
-        /*double precioVentaProducto = producto.getPrecioVentaProducto();
-        int cantidadProducto = getCantidadProducto();
-
-    }*/
 
 
 

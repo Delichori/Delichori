@@ -18,15 +18,16 @@ public class ProductoDao {
 
             try {
 
-               String query = "INSERT INTO producto(nombre_producto,descripcion_producto, precioCosto, precioVenta, ganancia_producto, existencia) VALUES (?,?,?,?,?,?)";
+               String query = "INSERT INTO producto(idProducto,nombreProducto,descripcionProducto,precioCosto,precioVenta,existenciaProducto)VALUES(?,?,?,?,?,?)";
 
                ps = conexion.prepareStatement(query);
 
-               ps.setString(1,registro.getNombreProducto());
-               ps.setString(2,registro.getDescripcionProducto());
-               ps.setDouble(3,registro.getPrecioVentaProducto());
-               ps.setDouble(4,registro.getPrecioCostoProducto());
-               ps.setDouble(5, registro.getExistenciaProducto());
+               ps.setInt(1,registro.getIdProducto());
+               ps.setString(2,registro.getNombreProducto());
+               ps.setString(3,registro.getDescripcionProducto());
+               ps.setDouble(4,registro.getPrecioVentaProducto());
+               ps.setDouble(5,registro.getPrecioCostoProducto());
+               ps.setDouble(6, registro.getExistenciaProducto());
 
                ps.executeUpdate(); // para insert delete update
 
@@ -59,12 +60,10 @@ public class ProductoDao {
             while (rs.next()){
 
                 System.out.println("\n");
-                System.out.println("Id producto: "+ rs.getInt("id"));
-                System.out.println("Nombre del producto: " + rs.getString("nombre"));
-                System.out.println("Descripcion del producto: " + rs.getString("descripcion"));
-                System.out.println("Precio del producto: " + rs.getDouble("precio"));
-                System.out.println("Costo del producto: " + rs.getDouble("costo"));
-                System.out.println("Cantidad del producto: " + rs.getDouble("cantidad"));
+                System.out.println("Id producto: "+ rs.getInt("idProducto"));
+                System.out.println("Nombre del producto: " + rs.getString("nombreProducto"));
+                System.out.println("Descripcion del producto: " + rs.getString("descripcionProducto"));
+                System.out.println("Precio venta del producto: " + rs.getDouble("precioVenta"));
             }
         }catch (SQLException e){
             System.out.println("No se recuperaron registros ");
@@ -87,7 +86,7 @@ public class ProductoDao {
 
                 if (opc == 1) {
 
-                    String query = "UPDATE producto SET nombre=? WHERE id = ?";
+                    String query = "UPDATE producto SET nombreProducto=? WHERE id = ?";
 
                     ps = connect.prepareStatement(query);
                     ps.setString(1, update.getNombreProducto());
@@ -98,7 +97,7 @@ public class ProductoDao {
 
                 }else if (opc == 2){
 
-                    String query = "UPDATE producto SET descripcion=? WHERE id = ?";
+                    String query = "UPDATE producto SET descripcionProducto=? WHERE id = ?";
 
                     ps = connect.prepareStatement(query);
                     ps.setString(1, update.getDescripcionProducto());
@@ -109,7 +108,7 @@ public class ProductoDao {
 
                 }else if (opc ==3){
 
-                    String query = "UPDATE producto SET precio=? WHERE id = ?";
+                    String query = "UPDATE producto SET precioVenta=? WHERE id = ?";
 
                     ps = connect.prepareStatement(query);
                     ps.setDouble(1, update.getPrecioVentaProducto());
@@ -120,7 +119,7 @@ public class ProductoDao {
 
                 }else if (opc == 4){
 
-                    String query = "UPDATE producto SET costo=? WHERE id = ?";
+                    String query = "UPDATE producto SET precioCosto=? WHERE id = ?";
 
                     ps = connect.prepareStatement(query);
                     ps.setDouble(1, update.getPrecioCostoProducto());
@@ -131,7 +130,7 @@ public class ProductoDao {
 
                 }else if (opc ==5){
 
-                    String query = "UPDATE producto SET cantidad=? WHERE id = ?";
+                    String query = "UPDATE producto SET existenciaProducto=? WHERE id = ?";
 
                     ps = connect.prepareStatement(query);
                     ps.setDouble(1, update.getExistenciaProducto());
@@ -164,7 +163,7 @@ public class ProductoDao {
             PreparedStatement ps = null;
 
             try {
-                String query = "DELETE FROM producto where producto.id = ?"; //Con el signo de interrogación le indicamos que le pasamos el id por ()
+                String query = "DELETE FROM producto where producto.idProducto = ?"; //Con el signo de interrogación le indicamos que le pasamos el id por ()
                 ps = connect.prepareStatement(query);
                 ps.setInt(1, idProducto);
                 ps.executeUpdate();

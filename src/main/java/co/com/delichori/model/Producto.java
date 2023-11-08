@@ -2,7 +2,7 @@ package co.com.delichori.model;
 
 public class Producto {
 
-    private int idProducto;
+    protected int idProducto;
     private String nombreProducto;
     private String descripcionProducto;
     private double precioCostoProducto;
