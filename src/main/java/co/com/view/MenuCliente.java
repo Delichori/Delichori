@@ -1,51 +1,49 @@
 package co.com.view;
 
+import co.com.delichori.model.Pedido;
+import co.com.delichori.service.PedidoService;
+import co.com.delichori.service.ProductoService;
+
 import java.util.Scanner;
 
 public class MenuCliente {
-    public void verProducto() {
-        System.out.println("Mostrando información de un producto...");
-    }
-
-    public void realizarPedido() {
-        System.out.println("Realizando pedido...");
-    }
-
 
     static Scanner sc = new Scanner(System.in);
-    public static void main(String[] args) {
 
-        MenuCliente menu =new MenuCliente();
+    public static void menuCliente(){
 
+        System.out.println("Presione 1 para ver el menu: ");
+        int init = sc.nextInt();
 
-
-
-        boolean salir = false;
-
-        while (!salir) {
-            System.out.println("Menú de Cliente :\n" );
-            System.out.println("1. Ver productos \n");
-            System.out.println("2. Realizar pedidos \n");
-
-
+        while (init != 0 ){
+            System.out.println("Menú Cliente : +" +
+                    "\n1. Ver productos " +
+                    "\n2. Realizar pedido  " +
+                    "\n3. Ver pedido" +
+                    "\n5. Salir");
             int opc = sc.nextInt();
 
             switch (opc) {
                 case 1:
-                    menu.verProducto();
+                    System.out.println("Ver productos:");
+                    ProductoService.verProducto();
                     break;
                 case 2:
-                    menu.realizarPedido();
+                    System.out.println("Realizar pedido");
+                    PedidoService.realizarPedido();
                     break;
-
+                case 3:
+                    System.out.println("Ver pedido");
+                    PedidoService.verPedido();
                 case 0:
-                    salir = true;
+                    System.out.println("Salir");
+                    init = 0;
                     break;
                 default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+                    System.out.println("Opción no válida. Por favor seleccione una opción válida.");
                     break;
             }
         }
+    }
+}
 
-}
-}

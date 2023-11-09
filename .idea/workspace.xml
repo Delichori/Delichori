@@ -4,7 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9adbcff7-a9ad-4d18-a9dd-877d23674cf4" name="Changes" comment="" />
+    <list default="true" id="9adbcff7-a9ad-4d18-a9dd-877d23674cf4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/Main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/conexion/Conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/conexion/Conexion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/dao/AdministradorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/dao/AdministradorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/AdministradorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/AdministradorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/PedidoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/PedidoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/delichori/service/UtilAdministrador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/view/MenuAPP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/view/MenuApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/view/MenuAdministrador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/view/MenuAdministrador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/com/view/MenuCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/com/view/MenuCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/Main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/conexion/Conexion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/dao/AdministradorDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/dao/ClienteDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/dao/FacturaDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/dao/PedidoDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/dao/ProductoDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/model/Administrador.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/model/Cliente.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/model/Factura.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/model/Pedido.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/model/Producto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/model/Usuario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/service/AdministradorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/service/ClienteService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/service/FacturaService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/service/PedidoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/service/ProductoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/service/UsuarioService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/service/UtilUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/test/TestConexion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/test/TestSelect.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/delichori/test/TestUpdate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/co/com/view/MenuAPP.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,10 +69,23 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "E:/Mi_Cesd_Disc_Jul_2023/_PROGRAMACIÓN/IdeaProjects/TiendaAPP"
+    "last_opened_file_path": "F:/TiendaApp"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="co.com.Main.Main" />
+      <module name="Delichori" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="co.com.Main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestConexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="co.com.delichori.test.TestConexion" />
       <module name="Delichori" />
@@ -53,6 +101,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TestConexion" />
       </list>
     </recent_temporary>
