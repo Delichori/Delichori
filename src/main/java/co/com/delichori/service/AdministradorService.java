@@ -1,15 +1,17 @@
 package co.com.delichori.service;
 
 import co.com.delichori.dao.AdministradorDao;
+import co.com.delichori.dao.ProductoDao;
 import co.com.delichori.model.Administrador;
+import co.com.view.MenuAdministrador;
 
 import java.util.Scanner;
 
-public abstract class AdministradorService implements UtilAdministrador {
+public class AdministradorService{
 
     static Scanner sc = new Scanner(System.in);
 
-    public void registrarAdministrador() {
+    public static void registrarAdministrador() {
 
         //SOLICITANDO LOS DATOS PARA EL REGISTRO
 
@@ -39,23 +41,13 @@ public abstract class AdministradorService implements UtilAdministrador {
 
     }
 
-    public void iniciarSesion() {
+    public static void iniciarSesion() {
 
-        Administrador registro = new Administrador();
+        AdministradorDao.iniciarSesionDB();
 
-        System.out.println("Ingrese su email: ");
-        String email = sc.nextLine();
-        System.out.println("Ingrese su contraseña: ");
-        String clave = sc.nextLine();
-
-        if (email.equals(registro.getEmail()) && clave.equals(registro.getClave())) {
-            System.out.println("Bienvenido");
-        } else {
-            System.out.println("Credenciales no válidas");
-        }
     }
 
-    public void eliminarAministrador() {
+    public static void eliminarAministrador() {
 
         System.out.println("Indique la cédula del administrador que desea eliminar");
         int cedulaAdministrador = sc.nextInt();

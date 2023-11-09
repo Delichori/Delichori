@@ -1,129 +1,86 @@
 package co.com.view;
 
+import co.com.delichori.service.AdministradorService;
+import co.com.delichori.service.PedidoService;
+import co.com.delichori.service.ProductoService;
+
 import java.util.Scanner;
 
 public class MenuAdministrador {
     static Scanner sc = new Scanner(System.in);
 
+    public static void menuAdmin(){
 
-    public void iniciarSesion() {
+        System.out.println("Presione 1 para ver el menu: ");
+        int init = sc.nextInt();
 
-        System.out.println("Iniciando sesión como administrador...");
-    }
+        while (init != 0 ){
+            System.out.println("Menú de Administrador :" +
+                    "\n1. Registrar Administrador " +
+                    "\n2. Eliminar Administrador " +
+                    "\n3. Crear Producto " +
+                    "\n4. Ver Producto " +
+                    "\n5. Actualizar Producto " +
+                    "\n6. Eliminar Producto " +
+                    "\n7. Ver Ganancia de Producto " +
+                    "\n8. Ver Pedido " +
+                    "\n9. Actualizar Pedido " +
+                    "\n10. Cancelar Pedido " +
+                    "\n11. Cerrar sesion \n");
 
-    public void cerrarSesion() {
-        System.out.println("Cerrando sesión...");
-    }
-
-    public void registrarAdministrador() {
-        System.out.println("Registrando un nuevo administrador...");
-    }
-
-    public void eliminarAdministrador() {
-        System.out.println("Eliminando un administrador...");
-    }
-
-    public void crearProducto() {
-        System.out.println("Creando un nuevo producto...");
-    }
-
-    public void verProducto() {
-        System.out.println("Mostrando información de un producto...");
-    }
-
-    public void actualizarProducto() {
-        System.out.println("Actualizando información de un producto...");
-    }
-
-    public void eliminarProducto() {
-        System.out.println("Eliminando un producto...");
-    }
-
-    public void verGananciaProducto() {
-        System.out.println("Mostrando ganancia de un producto...");
-    }
-
-    public void verPedido() {
-        System.out.println("Mostrando información de un pedido...");
-    }
-
-    public void actualizarPedido() {
-        System.out.println("Actualizando un pedido...");
-    }
-
-    public void cancelarPedido() {
-        System.out.println("Cancelando un pedido...");
-    }
-
-    public static void main(String[] args) {
-        MenuAdministrador menu = new MenuAdministrador();
-        Scanner scanner = new Scanner(System.in);
-
-        boolean salir = false;
-
-        while (!salir) {
-            System.out.println("Menú de Administrador :\n" );
-            System.out.println("1. Iniciar Sesión \n");
-            System.out.println("2. Cerrar Sesión \n");
-            System.out.println("3. Registrar Administrador \n");
-            System.out.println("4. Eliminar Administrador \n");
-            System.out.println("5. Crear Producto \n");
-            System.out.println("6. Ver Producto \n");
-            System.out.println("7. Actualizar Producto \n");
-            System.out.println("8. Eliminar Producto \n");
-            System.out.println("9. Ver Ganancia de Producto \n");
-            System.out.println("10. Ver Pedido \n");
-            System.out.println("11. Actualizar Pedido \n");
-            System.out.println("12. Cancelar Pedido \n");
-            System.out.println("0. Salir \n");
-
-            int opc = scanner.nextInt();
+            int opc = sc.nextInt();
 
             switch (opc) {
+
                 case 1:
-                    menu.iniciarSesion();
+                    System.out.println("Registre un administrador");
+                    AdministradorService.registrarAdministrador();
                     break;
                 case 2:
-                    menu.cerrarSesion();
+                    System.out.println("Elimine un administrador");
+                    AdministradorService.eliminarAministrador();
                     break;
                 case 3:
-                    menu.registrarAdministrador();
+                    System.out.println("Cree un producto");
+                    ProductoService.crearProducto();
                     break;
                 case 4:
-                    menu.eliminarAdministrador();
+                    System.out.println("Ver productos");
+                    ProductoService.verProducto();
                     break;
                 case 5:
-                    menu.crearProducto();
+                    System.out.println("Actualice el producto");
+                    ProductoService.actualizarProducto();
                     break;
                 case 6:
-                    menu.verProducto();
+                    System.out.println("Elimine un producto");
+                    ProductoService.eliminarProducto();
                     break;
                 case 7:
-                    menu.actualizarProducto();
+                    System.out.println("Vea la ganancia de producto");
+                    ProductoService.verGananciaProducto();
                     break;
                 case 8:
-                    menu.eliminarProducto();
+                    System.out.println("Vea un pedido");
+                    PedidoService.verPedido();
                     break;
                 case 9:
-                    menu.verGananciaProducto();
+                    System.out.println("Actualice un pedido");
+                    PedidoService.actualizarPedido();
                     break;
                 case 10:
-                    menu.verPedido();
+                    System.out.println("Cancele un pedido");
+                    PedidoService.cancelarPedido();
                     break;
                 case 11:
-                    menu.actualizarPedido();
-                    break;
-                case 12:
-                    menu.cancelarPedido();
-                    break;
-                case 0:
-                    salir = true;
+                    System.out.println("Cerrar sesion");
+                    init = 0;
                     break;
                 default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción válida.");
+                    System.out.println("Opción no válida. Por favor seleccione una opción válida.");
                     break;
             }
         }
-}
+    }
 }
 

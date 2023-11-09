@@ -64,8 +64,6 @@ public class PedidoService {
         System.out.println("Indique el id del pedido: ");
         int idPedido = sc.nextInt();
         PedidoDao.verPedidoDB(idPedido);
-
-
     }
 
     public static void actualizarPedido() {

@@ -1,16 +1,14 @@
 package co.com.Main;
 
-import co.com.view.MenuAPP;
+import co.com.view.MenuApp;
 
 public class Main {
     public static void main(String[] args) {
 
-        MenuAPP menuAPP = new MenuAPP();
-        menuAPP.menuProducto();
-        menuAPP.menuPedido();
-        menuAPP.menuUsuario();
-        menuAPP.menuAdministrador();
-        menuAPP.menuCliente();
+        MenuApp menu = new MenuApp();
+
+        menu.menuApp();
+
 
     }
 
