@@ -125,9 +125,30 @@ public class PedidoDao {
 
     public static void cancelarPedidoDB(int idPedido) {
 
+        try(Connection connect = Conexion.get_connection()){
+
+            PreparedStatement ps = null;
+
+            try {
+                String query = "DELETE FROM pedido where pedido.idPedido = ?";
+                ps = connect.prepareStatement(query);
+                ps.setInt(1, idPedido);
+                ps.executeUpdate();
+                System.out.println("El pedido ha sido cancelado exitosamente");
+            }catch (SQLException e){
+                System.out.println("No se eliminó el registro");
+                System.out.println(e);
+            }
+
+        }catch (SQLException e){
+            System.out.println(e);
+        }finally {
+            Conexion.close_connection();
+        }
+    }
+
 
     }
-}
 
 
 
