@@ -84,9 +84,44 @@ public class PedidoDao {
 
 
     public static void actualizarPedidoDB(Pedido update) {
+        try(Connection connect = Conexion.get_connection()){
 
+            PreparedStatement ps = null;
 
+            try {
+
+                int opc = update.getOpc();
+
+                System.out.println(opc);
+
+                if (opc == 1) {
+
+                    String query = "UPDATE pedido SET estadoPedido=? WHERE id = ?";
+
+                    ps = connect.prepareStatement(query);
+                    ps.setString(1, update.getEstadoPedido());
+                    ps.setInt(2, update.getIdPedido());
+                    ps.execute();
+
+                    System.out.println("Actualización exitosa");
+                }else{
+
+                    System.out.println("La opción no es válida");
+
+                }
+
+            }catch (SQLException e){
+                System.out.println("No fue posible actualizar el registro");
+                System.out.println(e);
+            }
+        }catch (SQLException e){
+            System.out.println(e);
+        }finally {
+            Conexion.close_connection();
+        }
     }
+
+
 
     public static void cancelarPedidoDB(int idPedido) {
 
